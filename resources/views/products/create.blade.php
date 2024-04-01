@@ -5,13 +5,12 @@
             <form method="POST" action="{{ route('products.store') }}" enctype="multipart/form-data">
                 @csrf
                 <div class="titlebar">
-                    <h1>Add Product</h1>
-                    <button>Save</button>
+                    <h1>Tambah Produk</h1>
                 </div>
                 @if ($errors->any())
                     <div>
                         <ul>
-                            @foreach ($errors - all() as $error)
+                            @foreach ($errors->all() as $error)
                                 <li>
                                     {{ $error }}
                                 </li>
@@ -21,32 +20,32 @@
                 @endif
                 <div class="card">
                     <div>
-                        <label>Name</label>
+                        <label>Nama</label>
                         <input type="text" name="name">
-                        <label>Description (optional)</label>
+                        <label>Deskripsi (opsional)</label>
                         <textarea cols="10" rows="5" name="description"></textarea>
-                        <label>Add Image</label>
+                        <label>Tambah Gambar</label>
                         <img src="" alt="" class="img-product" id="file-preview" />
                         <input type="file" name="image" accept="image/*" onchange="showFile(event)">
                     </div>
                     <div>
-                        <label>Category</label>
+                        <label>Kategori</label>
                         <select name="category">
-                            @foreach (json_decode('{"Smartphone":"Smartphone", "Smart TV":"Smart TV", "Computer":"Computer"}', true) as $optionKey => $optionValue)
+                            @foreach (json_decode('{"Sushi":"Sushi", "Ramen":"Ramen", "Rice Bowl":"Rice Bowl", "Dessert":"Dessert", "Minuman":"Minuman"}', true) as $optionKey => $optionValue)
                                 <option value="{{ $optionKey }}">{{ $optionValue }}</option>
                             @endforeach
                         </select>
                         <hr>
-                        <label>Inventory</label>
+                        <label>Stok</label>
                         <input type="text" name="quantity">
                         <hr>
-                        <label>Price</label>
+                        <label>Harga</label>
                         <input type="text" name="price">
                     </div>
                 </div>
                 <div class="titlebar">
                     <h1></h1>
-                    <button>Save</button>
+                    <button class="btn-success">Simpan</button>
                 </div>
             </form>
         </section>

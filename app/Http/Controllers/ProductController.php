@@ -46,7 +46,7 @@ class ProductController extends Controller
 
         $product->save();
 
-        return redirect()->route('products.index')->with('success', 'Product has been added successfully!');
+        return redirect()->route('products.index')->with('success', 'Produk berhasil ditambahkan!');
     }
     public function edit($id){
         $product = Product::findOrFail($id);
@@ -76,7 +76,7 @@ class ProductController extends Controller
 
         $product->save();
         
-        return redirect()->route('products.index')->with('success', 'Product has been updated successfully!');
+        return redirect()->route('products.index')->with('success', 'Produk berhasil diedit!');
     }
 
     public function destroy($id){
@@ -89,6 +89,6 @@ class ProductController extends Controller
 
         $product->delete();
 
-        return redirect('products')->with('success', 'Product has been deleted!');
+        return redirect('products')->with('success', 'Produk telah dihapus!');
     }
 }

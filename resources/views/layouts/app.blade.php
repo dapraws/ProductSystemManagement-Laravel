@@ -17,6 +17,10 @@
 </head>
 
 <body>
+    <div class="header">
+        <h4>Tutorial 05 - Laravel</h4>
+        <h4>Muhammad Darrel Prawira (1301210479)</h4>
+    </div>
     @yield('content')
 </body>
 

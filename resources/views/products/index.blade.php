@@ -3,8 +3,8 @@
     <main class="container">
         <section>
             <div class="titlebar">
-                <h1>Products</h1>
-                <a href="{{ route('products.create') }}"><button>Add Product</button></a>
+                <h1>Produk</h1>
+                <a href="{{ route('products.create') }}"><button class="btn-success">Tambah Produk</button></a>
             </div>
             @if ($message = Session::get('success'))
                 <script type="text/javascript">
@@ -30,7 +30,7 @@
                     <div>
                         <ul class="table-filter-list">
                             <li>
-                                <p class="table-filter-link link-active">All</p>
+                                <p class="table-filter-link link-active">Semua</p>
                             </li>
                         </ul>
                     </div>
@@ -39,25 +39,25 @@
                     <div class="table-search">
                         <div>
                             <button class="search-select">
-                                Search Product
+                                Cari
                             </button>
                             <span class="search-select-arrow">
                                 <i class="fas fa-caret-down"></i>
                             </span>
                         </div>
                         <div class="relative">
-                            <input class="search-input" type="text" name="search" placeholder="Search product..."
+                            <input class="search-input" type="text" name="search" placeholder="Cari produk..."
                                 name="search" value="{{ request('search') }}">
                         </div>
                     </div>
                 </form>
 
                 <div class="table-product-head">
-                    <p>Image</p>
-                    <p>Name</p>
-                    <p>Category</p>
-                    <p>Inventory</p>
-                    <p>Actions</p>
+                    <p>Gambar</p>
+                    <p>Nama</p>
+                    <p>Kategori</p>
+                    <p>Stok</p>
+                    <p>Aksi</p>
                 </div>
                 <div class="table-product-body">
                     @if (count($products) > 0)
@@ -68,7 +68,7 @@
                             <p>{{ $product->quantity }}</p>
                             <div style="display: flex">
                                 <a href="{{ route('products.edit', $product->id) }}">
-                                    <button class="btn btn-success">
+                                    <button class="btn btn-warning">
                                         <i class="fas fa-pencil-alt"></i>
                                     </button>
                                 </a>
@@ -82,7 +82,7 @@
                             </div>
                         @endforeach
                     @else
-                        <p>Product not found</p>
+                        <p>Produk tidak ada</p>
                     @endif
 
                 </div>
@@ -98,13 +98,13 @@
             var form = e.target.form;
 
             Swal.fire({
-                title: "Are you sure?",
-                text: "You won't be able to revert this!",
+                title: "Apa kamu yakin?",
+                text: "Coba dipikir-pikir lagi",
                 icon: "warning",
                 showCancelButton: true,
                 confirmButtonColor: "#3085d6",
                 cancelButtonColor: "#d33",
-                confirmButtonText: "Yes, delete it!"
+                confirmButtonText: "Ya, hapus!"
             }).then((result) => {
                 if (result.isConfirmed) {
                     form.submit();
